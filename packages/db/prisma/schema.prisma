@@ -18,15 +18,14 @@ model User{
   firstName    String    
   lastName     String    
   email        String    @unique
-  websites     Website[]
 }
 
 model Website{
   id           String    @id @default(uuid())
   url          String    @unique
   userId       String
-  user         User      @relation(fields: [userId], references: [id])
   ticks        WebsiteTicks[]
+  disable      Boolean   @default(false)
 }
 
 model Validator{
